@@ -1,0 +1,1249 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Audit a repo for star-readiness. 28 checks, one score, copy-paste fixes.">
+      
+      
+      
+        <link rel="canonical" href="https://chxhwc.github.io/starcheck/LAUNCH/">
+      
+      
+        <link rel="prev" href="../SCORECARD/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Launch notes - starcheck</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#launch-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="starcheck" class="md-header__button md-logo" aria-label="starcheck" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            starcheck
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Launch notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chxhwc/starcheck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chxhwc/starcheck
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="starcheck" class="md-nav__button md-logo" aria-label="starcheck" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    starcheck
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chxhwc/starcheck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chxhwc/starcheck
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCORECARD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scorecard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch notes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-before-anything-the-10-item-go-live-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Before anything: the 10-item go-live checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 叙事：为什么别人愿意转
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 首发日时间表（北京时间）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 现成文案（直接复制）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 现成文案（直接复制）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hacker-news-show-hn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hacker News — Show HN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reddit-rcommandline-ropensource-rcoolgithubprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reddit — r/commandline, r/opensource, r/coolgithubprojects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-twitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        X / Twitter — 一条主推 + 三条回复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2ex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V2EX（分享创造）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        掘金 / 少数派
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-awesome-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. awesome-list 提交清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 周刊投稿
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 第一周的承接（比首发更重要）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 指标与止损
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 反模式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-runbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 这份 runbook 的复用方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-before-anything-the-10-item-go-live-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Before anything: the 10-item go-live checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 叙事：为什么别人愿意转
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 首发日时间表（北京时间）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 现成文案（直接复制）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 现成文案（直接复制）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hacker-news-show-hn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hacker News — Show HN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reddit-rcommandline-ropensource-rcoolgithubprojects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reddit — r/commandline, r/opensource, r/coolgithubprojects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-twitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        X / Twitter — 一条主推 + 三条回复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2ex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V2EX（分享创造）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        掘金 / 少数派
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-awesome-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. awesome-list 提交清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 周刊投稿
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 第一周的承接（比首发更重要）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 指标与止损
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 反模式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-runbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 这份 runbook 的复用方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="launch-notes">Launch notes<a class="headerlink" href="#launch-notes" title="Permanent link">&para;</a></h1>
+<p>This is the distribution half of <code>starcheck</code> — the part that has nothing to do
+with code. It is written as a runbook, not a blog post, because the same file
+gets reused for the next project.</p>
+<p>The whole thesis in one line:</p>
+<blockquote>
+<p><strong>stars ≈ exposure × first-screen conversion × reuse frequency</strong>
+<code>starcheck</code> measures the middle term. This document is about the first one.</p>
+</blockquote>
+<hr />
+<h2 id="0-before-anything-the-10-item-go-live-checklist">0. Before anything: the 10-item go-live checklist<a class="headerlink" href="#0-before-anything-the-10-item-go-live-checklist" title="Permanent link">&para;</a></h2>
+<p>Nothing below matters until these are true. All of them are <code>gh</code> one-liners.</p>
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>repo<span class="w"> </span>create<span class="w"> </span>chxhwc/starcheck<span class="w"> </span>--public<span class="w"> </span>--source<span class="o">=</span>.<span class="w"> </span>--remote<span class="o">=</span>origin<span class="w"> </span>--push
+
+<span class="c1"># description = the pitch, 160 chars max, no buzzwords</span>
+gh<span class="w"> </span>repo<span class="w"> </span>edit<span class="w"> </span>--description<span class="w"> </span><span class="s2">"Audit any repo for star-readiness: 28 checks, one score, copy-paste fixes."</span>
+
+<span class="c1"># topics = the search surface. 10+, lowercase, hyphenated</span>
+gh<span class="w"> </span>repo<span class="w"> </span>edit<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-topic<span class="w"> </span>cli<span class="w"> </span>--add-topic<span class="w"> </span>developer-tools<span class="w"> </span>--add-topic<span class="w"> </span>github<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-topic<span class="w"> </span>readme<span class="w"> </span>--add-topic<span class="w"> </span>opensource<span class="w"> </span>--add-topic<span class="w"> </span>python<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-topic<span class="w"> </span>static-analysis<span class="w"> </span>--add-topic<span class="w"> </span>productivity<span class="w"> </span>--add-topic<span class="w"> </span>linter<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-topic<span class="w"> </span>growth
+
+gh<span class="w"> </span>repo<span class="w"> </span>edit<span class="w"> </span>--homepage<span class="w"> </span><span class="s2">"https://chxhwc.github.io/starcheck/"</span>
+gh<span class="w"> </span>repo<span class="w"> </span>edit<span class="w"> </span>--enable-discussions
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>事项</th>
+<th>为什么是硬前置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>description 写好</td>
+<td>搜索结果里只有这一行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>topics ≥ 10</td>
+<td>GitHub 站内搜索的主要入口</td>
+</tr>
+<tr>
+<td>3</td>
+<td>上传 social preview（<code>assets/social.png</code>，1280×640）</td>
+<td>分享出去的卡片默认是灰的</td>
+</tr>
+<tr>
+<td>4</td>
+<td>打 tag：<code>git tag v0.4.0 &amp;&amp; git push --tags</code></td>
+<td>watcher 的第一次唤醒</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pages 打开（<code>mkdocs.yml</code> 已就绪）</td>
+<td>多一个能被搜到的入口</td>
+</tr>
+<tr>
+<td>6</td>
+<td>发 PyPI（<code>release.yml</code> 已就绪，配 <code>PYPI_API_TOKEN</code>）</td>
+<td><code>uvx starcheck</code> 才算真的存在</td>
+</tr>
+<tr>
+<td>7</td>
+<td>README 首屏有 GIF + 一条安装命令</td>
+<td>决定了 90% 的转化</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Discussions 打开</td>
+<td>给"用不了"的人一个不用开 issue 的出口</td>
+</tr>
+<tr>
+<td>9</td>
+<td>自己的仓库先打 95+</td>
+<td>第一个被 <code>starcheck</code> 审计的仓库必须是自己</td>
+</tr>
+<tr>
+<td>10</td>
+<td>准备好一条 20 字以内的转述</td>
+<td>别人帮你传播时只需要这一句</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1">1. 叙事：为什么别人愿意转<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>工具类仓库传播的燃料从来不是功能，是<strong>一句话能复述的立场</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>文案</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>钩子（英）</td>
+<td>Your repo is good. That is why nobody stars it.</td>
+<td>README 首屏、HN 标题</td>
+</tr>
+<tr>
+<td>钩子（中）</td>
+<td>你的项目很好。所以才没人 star。</td>
+<td>即刻、V2EX、朋友圈</td>
+</tr>
+<tr>
+<td>转述句</td>
+<td>A linter for the things that actually decide whether a repo gets stars.</td>
+<td>别人帮你介绍时</td>
+</tr>
+<tr>
+<td>反差数据</td>
+<td>我审计了 100 个 0-star 的仓库，79 个没有 description，64 个没有演示图。</td>
+<td>长文开头（数据要自己跑一遍）</td>
+</tr>
+</tbody>
+</table>
+<p>规则：<strong>先给立场，再给工具</strong>。没人转发"一个 CLI"，大家转发"一句他一直想说但没说出口的话"。</p>
+<hr />
+<h2 id="2">2. 首发日时间表（北京时间）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>只在 <strong>周二或周三</strong> 发。UTC 13:00–15:00 ≈ 北京 21:00–23:00 = 美东上午 9 点。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>动作</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T-3 天</td>
+<td>只在 r/coolgithubprojects 这类小池子发一次</td>
+<td>拿真实反馈改 README，不消耗主渠道</td>
+</tr>
+<tr>
+<td>T-0 21:00</td>
+<td><strong>Hacker News <code>Show HN</code></strong>，单点打</td>
+<td>天花板由它决定</td>
+</tr>
+<tr>
+<td>T-0 21:10</td>
+<td>自己发第一条评论：讲实现里最脏的那个坑</td>
+<td>HN 排名很吃评论活跃度</td>
+</tr>
+<tr>
+<td>T-0 23:30</td>
+<td>看 2 小时数据：&lt;10 分就放弃 HN，转 Reddit</td>
+<td>不恋战</td>
+</tr>
+<tr>
+<td>T+1 09:00</td>
+<td>Reddit 对应 sub（一天最多两个）</td>
+<td>美国时间的第二波</td>
+</tr>
+<tr>
+<td>T+1 20:00</td>
+<td>中文渠道：V2EX + 即刻 + 掘金</td>
+<td>国内晚上是高峰</td>
+</tr>
+<tr>
+<td>T+2</td>
+<td>写一条"首发复盘"（数据全公开）</td>
+<td>复盘文本身就是二次传播物</td>
+</tr>
+<tr>
+<td>T+3</td>
+<td>awesome-list PR × 8</td>
+<td>长期免费流量，不占当天</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一次只开一个渠道。</strong> 同时全发＝无法归因，第二篇就没有可复用的经验。</p>
+<hr />
+<h2 id="3">3. 现成文案（直接复制）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="hacker-news-show-hn">Hacker News — Show HN<a class="headerlink" href="#hacker-news-show-hn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Show HN: starcheck – audit a repo for star-readiness (28 checks, one score)
+
+I kept giving the same advice to people with good repos and no stars: your README
+opens with a table of contents, your install command is 240 lines down, there is no
+GIF, your description is empty. All true, all useless, because there was never a
+way to know when you were done.
+
+So I made it falsifiable. 28 checks over four weighted dimensions (discovery,
+conversion, credibility, distribution), one 0-100 score, and a paste-ready command
+for every failure.
+
+Design constraints, because they matter more than the feature list:
+- stdlib only. `uvx starcheck` in 3 seconds, no venv, no install.
+- every check must be decidable from the repo alone. Anything requiring taste is
+  in the docs, not in the code.
+- `skip` is not `fail`: offline mode cannot see your description or topics, so
+  those drop out of the denominator instead of pretending to fail.
+- it never executes code from the audited repo. It reads files as text.
+- the box drawing degrades to ASCII on a GBK console instead of crashing.
+
+It scores readiness, not results — it has no idea whether your idea is interesting.
+
+    uvx starcheck owner/repo
+
+https://github.com/chxhwc/starcheck
+</code></pre></div>
+<p>第一条评论（自己发，10 分钟内）：</p>
+<div class="highlight"><pre><span></span><code>Author here. The part I got wrong first: I assumed weight should track "how much
+this annoys me". It should track how much it costs conversion.
+
+A missing LICENSE (weight 3) does not lose you a visitor. A README with no GIF and
+no install command in the first screen (weight 5 each) loses you most of them. The
+scoring model got much more useful once I made weights a budget — no single check
+may move the score by more than ~7 points.
+
+Happy to argue about any of the 28. That is what docs/SCORECARD.md is for.
+</code></pre></div>
+<h3 id="reddit-rcommandline-ropensource-rcoolgithubprojects">Reddit — r/commandline, r/opensource, r/coolgithubprojects<a class="headerlink" href="#reddit-rcommandline-ropensource-rcoolgithubprojects" title="Permanent link">&para;</a></h3>
+<p>标题（不带感叹号，sub 规则不同）：</p>
+<div class="highlight"><pre><span></span><code>starcheck: a linter for the things that actually decide whether a repo gets stars
+</code></pre></div>
+<p>正文：首图 <code>assets/social.png</code> + HN 正文前两段 + 一条 curl/uvx 命令。<strong>不要在正文里说 "please star"</strong>，七个 sub 里有五个会因此删帖。</p>
+<h3 id="x-twitter">X / Twitter — 一条主推 + 三条回复<a class="headerlink" href="#x-twitter" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Your repo is good. That is why nobody stars it.
+
+I built a linter for the 28 things that actually decide it — description, topics,
+first-screen install, GIF, maintenance signals.
+
+28 checks. One score. Zero dependencies.
+
+uvx starcheck
+
+[GIF]
+</code></pre></div>
+<p>回复 1：一张 62/100 的真实审计截图（红黄绿一眼看懂）
+回复 2：<code>--fix</code> 的输出（哦，它还给命令）
+回复 3：<code>--badge</code> + "put the score in your README, it is also a share button"</p>
+<h3 id="v2ex">V2EX（分享创造）<a class="headerlink" href="#v2ex" title="Permanent link">&para;</a></h3>
+<p>标题：<code>starcheck：给仓库做一次「star 就绪度」体检，28 项，一个分数</code></p>
+<p>正文结构：痛点两句 → 一张 GIF → 一条命令 → 四个维度的表 → 「它不判断你的点子有没有意思」。
+<strong>结尾放 GitHub 链接，不要放 star 请求。</strong></p>
+<h3 id="_1">掘金 / 少数派<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>不要发工具介绍，发<strong>方法文</strong>：《我审计了 100 个 0 star 的仓库，发现了 5 个共同点》，
+工具只在文末出现一次。方法文的阅读量通常是工具文的 5 倍。</p>
+<hr />
+<h2 id="4-awesome-list">4. awesome-list 提交清单<a class="headerlink" href="#4-awesome-list" title="Permanent link">&para;</a></h2>
+<p>一个 PR 加一行，长期免费流量。按契合度排：</p>
+<table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>建议归入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>matiassingers/awesome-readme</code></td>
+<td>Tools / Linters</td>
+</tr>
+<tr>
+<td><code>agarrharr/awesome-cli-apps</code></td>
+<td>Development</td>
+</tr>
+<tr>
+<td><code>vinta/awesome-python</code></td>
+<td>Tools → Command-line Application Development</td>
+</tr>
+<tr>
+<td><code>sdras/awesome-actions</code></td>
+<td>Tooling</td>
+</tr>
+<tr>
+<td><code>Kikobeats/awesome-github</code></td>
+<td>Tools</td>
+</tr>
+<tr>
+<td><code>dkhamsing/open-source-ios-apps</code></td>
+<td>不适用，跳过</td>
+</tr>
+<tr>
+<td><code>mikethebeast/awesome-devtools</code>（或同类 devtools 列表）</td>
+<td>CLI</td>
+</tr>
+<tr>
+<td><code>521xueweihan/HelloGitHub</code></td>
+<td>提 issue 自荐，每月一期</td>
+</tr>
+<tr>
+<td><code>ruanyf/weekly</code></td>
+<td>提 issue，注明「自荐」</td>
+</tr>
+</tbody>
+</table>
+<p>行格式（照抄列表里相邻条目，别自己发明格式）：</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">starcheck</span>](<span class="na">https://github.com/chxhwc/starcheck</span>) - Audit a repo for star-readiness: 28 checks, one score, paste-ready fixes.
+</code></pre></div>
+<p>PR 描述模板：</p>
+<div class="highlight"><pre><span></span><code>Adds starcheck, a zero-dependency CLI that scores a repo against 28
+star-readiness checks. Relevant here because it is a README/distribution
+linter, which is what this list is about.
+</code></pre></div>
+<hr />
+<h2 id="5">5. 周刊投稿<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>目标</th>
+<th>入口</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HelloGitHub</td>
+<td>GitHub issue 自荐</td>
+<td>中文，月度，命中率高</td>
+</tr>
+<tr>
+<td>阮一峰周刊</td>
+<td><code>ruanyf/weekly</code> issue</td>
+<td>中文，周五发，注明自荐</td>
+</tr>
+<tr>
+<td>Console Dev</td>
+<td>console.dev/submit</td>
+<td>专门收 CLI 工具，转化极好</td>
+</tr>
+<tr>
+<td>Python Weekly</td>
+<td>pythonweekly.com 提交表单</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>PyCoders Weekly</td>
+<td>pycoders.com 提交</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>TLDR / Changelog Weekly</td>
+<td>官网表单</td>
+<td>需要一点新闻性（如 v1.0）</td>
+</tr>
+</tbody>
+</table>
+<p>邮件正文（≤120 词，别写长）：</p>
+<div class="highlight"><pre><span></span><code>Subject: starcheck — a linter for repo star-readiness (zero deps)
+
+Hi — one-line pitch: starcheck audits a repo against the 28 signals that decide
+whether strangers star it (description, topics, first-screen install, GIF,
+maintenance signals), returns one score, and prints the exact commands to fix
+the top 3.
+
+Why it fits your readers: it is a two-minute `uvx` call with no dependencies,
+and the output is a screenshot people paste into their own README.
+
+  uvx starcheck owner/repo            # https://github.com/chxhwc/starcheck
+</code></pre></div>
+<hr />
+<h2 id="6">6. 第一周的承接（比首发更重要）<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>首发只决定前 200 个 star，承接决定后面 2000 个。</p>
+<ul>
+<li><strong>12 小时内回完所有 issue</strong>，哪怕只是 "reproduced, fix tonight"。</li>
+<li><strong>合并 3 个外部 PR</strong>，并在 CHANGELOG 里点名。每个贡献者都是一个传播节点。</li>
+<li><strong>把最常见的抱怨变成 v0.5 的第一个 feature</strong>，然后在 issue 里 @ 那个人。</li>
+<li><strong>每天发一条审计别人的实录</strong>（征得同意的公开仓库），配一句结论。这是可复用的内容引擎：
+  <code>starcheck psf/requests</code> → 一张图 → "一个 6 万 star 的仓库也才 84 分，因为 X"。</li>
+<li><strong>发一次 v0.5 release</strong>：watcher 通知是唯一能主动触达老用户的通道。</li>
+</ul>
+<hr />
+<h2 id="7">7. 指标与止损<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>看什么</th>
+<th>合格线</th>
+<th>不合格怎么办</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T+2h</td>
+<td>HN 分数</td>
+<td>≥ 10</td>
+<td>放弃 HN，转 Reddit，别重发</td>
+</tr>
+<tr>
+<td>T+24h</td>
+<td>star 增量</td>
+<td>≥ 50</td>
+<td>说明首屏没说服人 → 改 GIF 和标题，不重发</td>
+</tr>
+<tr>
+<td>T+72h</td>
+<td>star/访客比</td>
+<td>≥ 5%</td>
+<td>说明来的人不对 → 换渠道，不换文案</td>
+</tr>
+<tr>
+<td>T+7d</td>
+<td>fork 数</td>
+<td>≥ 3</td>
+<td>说明没人想改 → 说明工具太窄，考虑加维度</td>
+</tr>
+<tr>
+<td>T+30d</td>
+<td>自然流量占比</td>
+<td>≥ 30%</td>
+<td>说明没沉淀 → 补齐 awesome-list 和周刊</td>
+</tr>
+</tbody>
+</table>
+<p>止损规则：<strong>同一个渠道，同一份文案，只发一次。</strong> 重发换的是标题和首图，不是时间。</p>
+<hr />
+<h2 id="8">8. 反模式<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>买 star / 互 star 群</strong>：GitHub 有异常增长检测，账号降权、Trending 直接踢；
+  star/fork 比例失真后，懂行的人扫一眼仓库就知道，在招聘和融资场景是负资产。</li>
+<li><strong>"求 star"</strong>：七个 sub 里有五个会因此删帖，HN 会直接沉。</li>
+<li><strong>抽奖换 star</strong>：来的人永远不会用你的工具，转化率数据从此不可信。</li>
+<li><strong>一次发十个渠道</strong>：无法归因，第二次就没有可复用的经验。</li>
+<li><strong>把首发当终点</strong>：首发之后的两周，才是 star 曲线真正分叉的地方。</li>
+</ul>
+<hr />
+<h2 id="9-runbook">9. 这份 runbook 的复用方式<a class="headerlink" href="#9-runbook" title="Permanent link">&para;</a></h2>
+<p>下次做新项目，只需要改三处：</p>
+<ol>
+<li>第 1 节的四句话（钩子、转述句、反差数据）</li>
+<li>第 3 节的标题和正文</li>
+<li>第 4 节的 awesome-list 清单</li>
+</ol>
+<p>其余（时间表、承接 SOP、指标、反模式）与项目无关，直接照抄。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
