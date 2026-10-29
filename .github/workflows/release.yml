@@ -3,9 +3,11 @@ name: release
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
 
 permissions:
   contents: write
+  id-token: write # Trusted Publishing: no PyPI token anywhere
 
 jobs:
   release:
@@ -22,23 +24,29 @@ jobs:
       - name: Test before publishing
         run: python -m unittest discover -s tests -v
 
-      - name: Build
+      - name: Build sdist + wheel
         run: |
           pip install build
           python -m build
 
-      # Guarded on purpose: a tag must never leave a red X on the repo just
-      # because the PyPI token has not been configured yet.
+      # continue-on-error: a tag must never leave a red X on the repo just
+      # because the Trusted Publisher has not been configured yet. The step
+      # is still visible in the log, and the warning below says what to do.
       - name: Publish to PyPI
-        env:
-          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        id: pypi
+        continue-on-error: true
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+      - name: Report PyPI outcome
+        if: steps.pypi.outcome == 'failure'
         run: |
-          if [ -z "$PYPI_API_TOKEN" ]; then
-            echo "::warning title=PyPI skipped::PYPI_API_TOKEN is not set; skipping upload."
-            exit 0
-          fi
-          pip install twine
-          python -m twine upload --non-interactive -u __token__ -p "$PYPI_API_TOKEN" dist/*
+          echo "::warning title=PyPI upload skipped::Trusted Publisher is not configured for this repo yet. See https://pypi.org/manage/account/publishing/"
+          {
+            echo "### PyPI upload skipped"
+            echo ""
+            echo "The release was created, but the wheel was not published."
+            echo "Configure the Trusted Publisher on PyPI (owner \`chxhwc\`, repo \`starcheck\`, workflow \`release.yml\`) and re-run this workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
