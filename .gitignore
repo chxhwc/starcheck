@@ -25,3 +25,6 @@ assets/frames/
 # os
 .DS_Store
 Thumbs.db
+
+# mkdocs build output
+site/
