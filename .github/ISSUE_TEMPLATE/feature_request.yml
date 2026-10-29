@@ -1,0 +1,33 @@
+name: Feature or new check
+description: A check that should exist, a repo that scores wrong, or an output that should be better
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What is missing
+      description: Describe the signal, not the implementation. Which repos does it separate?
+    validations:
+      required: true
+  - type: textarea
+    id: falsify
+    attributes:
+      label: How would a check decide it?
+      description: |
+        From what evidence — a file name, a README section, an API field?
+        If it needs a human judgement call, it probably belongs in docs, not in code.
+      placeholder: "File exists: docs/*.md AND README links to it AND Pages is enabled."
+    validations:
+      required: true
+  - type: dropdown
+    id: dimension
+    attributes:
+      label: Dimension
+      options:
+        - discovery (有人搜得到你吗)
+        - conversion (点进来的人会 star 吗)
+        - credibility (看起来像在认真维护吗)
+        - distribution (有二次传播的钩子吗)
+        - new dimension
+    validations:
+      required: true

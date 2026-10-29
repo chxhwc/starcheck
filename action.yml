@@ -1,0 +1,55 @@
+name: starcheck
+description: Audit a repo for star-readiness and fail the build under a score
+author: chxhwc
+branding:
+  icon: star
+  color: yellow
+
+inputs:
+  path:
+    description: Repository path to audit
+    required: false
+    default: "."
+  fail-under:
+    description: Minimum score (0-100). Leave empty to never fail.
+    required: false
+    default: ""
+  version:
+    description: starcheck version to run
+    required: false
+    default: ""
+
+outputs:
+  score:
+    description: "0-100"
+    value: ${{ steps.run.outputs.score }}
+  grade:
+    description: "A+ … E"
+    value: ${{ steps.run.outputs.grade }}
+
+runs:
+  using: composite
+  steps:
+    - id: run
+      shell: bash
+      run: |
+        set -o pipefail
+        pkgs="starcheck"
+        if [ -n "${{ inputs.version }}" ]; then pkgs="starcheck==${{ inputs.version }}"; fi
+        mkdir -p "$RUNNER_TEMP/starcheck"
+        pipx run --spec "$pkgs" starcheck "${{ inputs.path }}" \
+          --no-color --json --badge "$RUNNER_TEMP/starcheck/score.svg" \
+          --markdown "$RUNNER_TEMP/starcheck/REPORT.md" > "$RUNNER_TEMP/starcheck/out.json"
+        python - <<'PY' >> "$GITHUB_OUTPUT"
+        import json, os
+        data = json.load(open(os.environ["RUNNER_TEMP"] + "/starcheck/out.json", encoding="utf-8"))
+        print(f"score={data['score']}")
+        print(f"grade={data['grade']}")
+        PY
+        cat "$RUNNER_TEMP/starcheck/REPORT.md" >> "$GITHUB_STEP_SUMMARY"
+
+    - shell: bash
+      if: inputs.fail-under != ''
+      run: |
+        pipx run --spec "starcheck${{ inputs.version && '==' || '' }}${{ inputs.version }}" starcheck "${{ inputs.path }}" \
+          --no-color --fail-under "${{ inputs.fail-under }}"

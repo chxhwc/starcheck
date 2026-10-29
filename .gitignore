@@ -1,0 +1,27 @@
+# byte-compiled
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# venvs
+.venv/
+venv/
+env/
+
+# tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# generated
+assets/frames/
+*.log
+
+# os
+.DS_Store
+Thumbs.db

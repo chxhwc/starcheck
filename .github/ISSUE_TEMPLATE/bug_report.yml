@@ -1,0 +1,38 @@
+name: Bug report
+description: Something is wrong with a check, a score, or the output
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. One thing first: `starcheck --json` output makes this fixable in minutes.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you expect, what did you get?
+      placeholder: "`starcheck .` says my repo has no CI, but I have .gitlab-ci.yml at the root."
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste the card, or `starcheck . --json` for the full picture.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "starcheck 0.4.0"
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: OS + Python
+      placeholder: "Windows 11, Python 3.13.5"
+    validations:
+      required: true

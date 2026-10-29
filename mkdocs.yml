@@ -1,0 +1,31 @@
+site_name: starcheck
+site_description: Audit a repo for star-readiness. 28 checks, one score, copy-paste fixes.
+site_url: https://chxhwc.github.io/starcheck/
+repo_url: https://github.com/chxhwc/starcheck
+repo_name: chxhwc/starcheck
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: green
+      toggle:
+        icon: material/weather-night
+        name: light mode
+  features:
+    - navigation.instant
+    - content.code.copy
+
+nav:
+  - Overview: index.md
+  - Scorecard: SCORECARD.md
+  - Launch notes: LAUNCH.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
