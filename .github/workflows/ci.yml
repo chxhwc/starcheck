@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: py${{ matrix.python }} / ${{ matrix.os }}
@@ -16,8 +20,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.9", "3.11", "3.13"]
+        # macOS runners queue for minutes on a new account, so it gets one
+        # slot as a smoke test instead of three.
+        include:
+          - { os: ubuntu-latest, python: "3.9" }
+          - { os: ubuntu-latest, python: "3.11" }
+          - { os: ubuntu-latest, python: "3.13" }
+          - { os: windows-latest, python: "3.9" }
+          - { os: windows-latest, python: "3.11" }
+          - { os: windows-latest, python: "3.13" }
+          - { os: macos-latest, python: "3.13" }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,6 +50,6 @@ jobs:
         with:
           python-version: "3.13"
       - run: pip install ruff
-      - run: ruff check src tests
+      - run: ruff check src tests tools
       - name: Ensure zero runtime dependencies
         run: python -c "import tomllib,pathlib;d=tomllib.loads(pathlib.Path('pyproject.toml').read_text());assert not d['project']['dependencies'], 'starcheck must stay dependency-free'"
