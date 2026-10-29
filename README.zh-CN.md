@@ -24,6 +24,8 @@ uvx starcheck              # 审计你当前所在的仓库，零安装
 starcheck chxhwc/starcheck    # 审计别人的仓库（浅克隆 + GitHub API）
 ```
 
+<sub>还没上 PyPI？先 `pip install git+https://github.com/chxhwc/starcheck`，今天就能用。</sub>
+
 ```console
 $ starcheck .
 ┌──────────────────────────────────────────────────────────────────────────┐

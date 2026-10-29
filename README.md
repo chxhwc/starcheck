@@ -26,6 +26,8 @@ uvx starcheck              # audit the repo you are standing in — no install
 starcheck owner/repo       # audit someone else's (shallow clone + GitHub API)
 ```
 
+<sub>Not on PyPI yet? `pip install git+https://github.com/chxhwc/starcheck` works today.</sub>
+
 ```console
 $ starcheck .
 ┌──────────────────────────────────────────────────────────────────────────┐
